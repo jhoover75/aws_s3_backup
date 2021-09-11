@@ -34,6 +34,7 @@ done
 
 # Synching to S3
 aws s3 mb s3://${bucket_name}
-aws s3 sync --delete --storage-class GLACIER "$dest" s3://${bucket_name}
+# Valid choices for storage class are: STANDARD | REDUCED_REDUNDANCY | STANDARD_IA | ONEZONE_IA | INTELLIGENT_TIERING | GLACIER | DEEP_ARCHIVE. Defaults to 'STANDARD'
+aws s3 sync --delete --storage-class INTELLIGENT_TIERING "$dest" s3://${bucket_name}
 
 
